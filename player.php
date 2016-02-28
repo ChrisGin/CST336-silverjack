@@ -1,10 +1,10 @@
 <?php
-    $names=array(''=>0);
+    $names=array('Jacqui' => 0, 'Kenshi' => 0, 'LiuKang' => 0, 'Raiden' => 0, 'Scorpion' => 0, 'SubZero' => 0,
+                 'Johnny' => 0, 'Kitana' => 0, 'Mileena' => 0, 'Reptile' => 0, 'Sonya' => 0, 'Tanya' => 0);
 
     function getName()
     {
         global $names;
-
         while(true)
         {
             $counter=0;
@@ -31,7 +31,7 @@
 
     function createPlayer($name)
     {
-        $player=array('name' => $name, 'hand' => array_fill(0, 52, 0), 'score' => 0, 'pic' => $pic);
+        $player=array('name' => $name, 'hand' => array_fill(0, 52, 0), 'score' => 0, 'pic' => 'img/' . $name . '.png');
         return $player;
     }
 ?>
