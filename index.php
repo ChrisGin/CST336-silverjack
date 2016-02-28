@@ -64,16 +64,20 @@
         $p4=createPlayer($name);
         getHand($p4);
 
-        echo '<img src="' . $p1['pic'] . '" alt="' . $p1['name'] . '" />';
+        echo '<img src="' . $p1['pic'] . '" alt="' . $p1['name'] . '" height=100p width=100p />    ';
+        displayHand($p1);
         echo $p1['score']; // TODO: display player's picture and hand
         echo '<br>';
-        echo '<img src="' . $p2['pic'] . '" alt="' . $p2['name'] . '" />';
+        echo '<img src="' . $p2['pic'] . '" alt="' . $p2['name'] . '" height=100p width=100p />';
+        displayHand($p2);
         echo $p2['score'];
         echo '<br>';
-        echo '<img src="' . $p3['pic'] . '" alt="' . $p3['name'] . '" />';
+        echo '<img src="' . $p3['pic'] . '" alt="' . $p3['name'] . '" height=100p width=100p />';
+        displayHand($p3);
         echo $p3['score'];
         echo '<br>';
-        echo '<img src="' . $p4['pic'] . '" alt="' . $p4['name'] . '" />';
+        echo '<img src="' . $p4['pic'] . '" alt="' . $p4['name'] . '" height=100p width=100p />';
+        displayHand($p4);
         echo $p4['score'];
         echo '<br>';
         $winnerScore = getWeener($p1, $p2, $p3, $p4);
@@ -194,6 +198,16 @@
             echo 'a gt b' . '<br>';
             return -1;
         }
+    }
+    
+    function displayHand($player){
+        /*for($i = 0 ; $i < count($player["hand"]); $i++){
+            $suit = 
+            
+            if($player["hand"][$i] == 1){
+                echo '<img src="' . $p4['pic'] . '" alt="' . $p4['name'] . '" />';;
+            } 
+        }*/
     }
 
 ?>
