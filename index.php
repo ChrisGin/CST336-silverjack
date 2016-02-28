@@ -140,7 +140,6 @@
     function getWeener($p1,$p2,$p3,$p4){
         $scores = array($p1['score'], $p2['score'], $p3['score'], $p4['score']);
         $finalScores = array();
-        //uasort($scores, 'compareScores' );
 
         for($i = 0; $i < count($scores); $i++){
             if($scores[$i] <= 42){
@@ -149,11 +148,6 @@
         } 
         
         rsort($finalScores);
-
-        /*for($i = 0; $i < count($scores); $i++){
-            echo 'Scores: ';
-            echo $finalScores[$i] . '<br>';
-        } */
         
         return $finalScores[0];
     }
@@ -218,13 +212,30 @@
     }
     
     function displayHand($player){
-        /*for($i = 0 ; $i < count($player["hand"]); $i++){
-            $suit = 
+        $i = 0;
+        foreach( $player['hand'] as $c ){
+            if($c == 1){
+                $s = floor($i / 13);
+                $card = $i % 13 + 1;
+                switch($s){
+                    case 0:
+                       $suit='clubs'; 
+                        break;
+                    case 1:
+                        $suit='diamonds';
+                        break;
+                    case 2:
+                        $suit='hearts';
+                        break;
+                    case 3:
+                        $suit='spades';
+                        break;
+                }
+            echo '<img src=\'cards/' . $suit . '/' . $card . '.png\'>';
+            }
+            $i++;
+        }
             
-            if($player["hand"][$i] == 1){
-                echo '<img src="' . $p4['pic'] . '" alt="' . $p4['name'] . '" />';;
-            } 
-        }*/
     }
 
 ?>
