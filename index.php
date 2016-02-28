@@ -72,7 +72,7 @@
         echo $p4['score'];
         echo '<br>';
         $winner = getWeener($p1, $p2, $p3, $p4);
-        echo '<h2> ' . $winner['score'] . ' </h2>';
+        echo '<h2> ' . $winner . ' </h2>';
     }
 
 /*
@@ -128,25 +128,24 @@
  *
  */
     function getWeener($p1,$p2,$p3,$p4){
-        $scores = array($p1, $p2, $p3, $p4);
-        uasort($scores, 'compareScores' );
+        $scores = array($p1['score'], $p2['score'], $p3['score'], $p4['score']);
+        $finalScores = array();
+        //uasort($scores, 'compareScores' );
 
         for($i = 0; $i < count($scores); $i++){
-            echo $scores[$i]['score'] . '<br>';
-        } 
-//            if($scores['score'] < 43)
-//                return $scores[$i];
-/*
-        $scores = array($p1["score"],$p2["score"],$p3["score"],$p4["score"]);
-        for($i = 0; $i < 4; $i++){
-            if($scores[$i]> 42){
-                unset($player["scores"][$i]);
+            if($scores[$i] <= 42){
+                array_push($finalScores, $scores[$i]);
             }
-        }
+        } 
+        
+        rsort($finalScores);
 
-        rsort($scores);
-        return $scores[0];
- */
+        for($i = 0; $i < count($scores); $i++){
+            echo 'Scores: ';
+            echo $finalScores[$i] . '<br>';
+        } 
+        
+        return $finalScores[0];
     }
 
 /*
