@@ -80,19 +80,21 @@
             <h1 class = "title">
                 Silver Jack
             </h1>
+            <br />
+            <br />
             <div class = "boxed">
-                HIkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
+               hand<br />
+                hand<br />
+                 hand<br />
+                  hand<br />
+               hand<br />
+                hand<br />
+                 hand<br />
             </div>
               
             
         </main>
         
-        <footer>
-            <sup> &copy; </sup> P.Karina, V.Sammuel, M.Christian, P.R...., G.Ed
-        	<br /> 
-        	    <strong>Disclaimer</strong>: The content of this website might not be accurate.
-        	<br/>
-        </footer>
         
     </body>
     
