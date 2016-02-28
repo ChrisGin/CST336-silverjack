@@ -39,7 +39,8 @@
     function createPlayer($name)
     {
         $player=array('name' => $name, 'hand' => array_fill(0, 52, 0),
-                      'score' => 0, 'pic' => 'img/' . $name . '.png');
+                      'score' => 0, 'pic' => 'img/' . $name . '.png',
+                      'pot' => 0);
         return $player;
     }
 
@@ -71,8 +72,9 @@
         echo '<br>';
         echo $p4['score'];
         echo '<br>';
-        $winner = getWeener($p1, $p2, $p3, $p4);
-        echo '<h2> ' . $winner['name'] . ' ' . $winner['score'] . ' </h2>';
+        $winnerScore = getWeener($p1, $p2, $p3, $p4);
+        $winnerPlayer = getWeenerName($p1, $p2, $p3, $p4, $winner);
+        echo '<h2> ' . $winnerPlayer['name'] . $winnerScore . $winnerPlayer['pot'] . ' </h2>';
     }
 
 /*
@@ -128,12 +130,12 @@
  *
  */
     function getWeener($p1,$p2,$p3,$p4){
-        $scores = array($p1, $p2, $p3, $p4);
+        $scores = array($p1['score'], $p2['score'], $p3['score'], $p4['score']);
         $finalScores = array();
         //uasort($scores, 'compareScores' );
 
         for($i = 0; $i < count($scores); $i++){
-            if($scores[$i]['score'] <= 42){
+            if($scores[$i] <= 42){
                 array_push($finalScores, $scores[$i]);
             }
         } 
@@ -146,6 +148,25 @@
         } */
         
         return $finalScores[0];
+    }
+    
+    function getWeenerName(& $p1, & $p2, & $p3, & $p4, $winner){
+        if($p1['score'] == $winner){
+            $p1['pot'] == ($p2['score'] + $p3['score'] + $p4['score']);
+            return $p1;
+        }
+        if($p2['score'] == $winner){
+            $p2['pot'] == ($p1['score'] + $p3['score'] + $p4['score']);
+            return $p2;
+        }
+        if($p3['score'] == $winner){
+            $p3['pot'] == ($p1['score'] + $p2['score'] + $p4['score']);
+            return $p3;
+        }
+        if($p4['score'] == $winner){
+            $p4['pot'] == ($p1['score'] + $p2['score'] + $p3['score']);
+            return $p4;
+        }
     }
 
 /*
