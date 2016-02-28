@@ -63,7 +63,7 @@
         $p4=createPlayer($name);
         getHand($p4);
 
-        echo $p1['score'];
+        echo $p1['score']; // TODO: display player's picture and hand
         echo '<br>';
         echo $p2['score'];
         echo '<br>';
@@ -72,7 +72,7 @@
         echo $p4['score'];
         echo '<br>';
         $winner = getWeener($p1, $p2, $p3, $p4);
-        echo '<h2> ' . $winner . ' </h2>';
+        echo '<h2> ' . $winner['name'] . ' ' . $winner['score'] . ' </h2>';
     }
 
 /*
@@ -128,12 +128,12 @@
  *
  */
     function getWeener($p1,$p2,$p3,$p4){
-        $scores = array($p1['score'], $p2['score'], $p3['score'], $p4['score']);
+        $scores = array($p1, $p2, $p3, $p4);
         $finalScores = array();
         //uasort($scores, 'compareScores' );
 
         for($i = 0; $i < count($scores); $i++){
-            if($scores[$i] <= 42){
+            if($scores[$i]['score'] <= 42){
                 array_push($finalScores, $scores[$i]);
             }
         } 
