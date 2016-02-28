@@ -104,7 +104,7 @@
         Disclamer: Some of the the contents of this page are not accurate.
         
         <br />
-        <img src="../../IMG/csumb-logo.png" alt="CSUMB Logo" />
+        <img src="img/csumb-logo.png" alt="CSUMB Logo" />
     </footer>
     
 </hmtml>
