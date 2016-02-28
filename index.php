@@ -64,12 +64,16 @@
         $p4=createPlayer($name);
         getHand($p4);
 
+        echo '<img src="' . $p1['pic'] . '" alt="' . $p1['name'] . '" />';
         echo $p1['score']; // TODO: display player's picture and hand
         echo '<br>';
+        echo '<img src="' . $p2['pic'] . '" alt="' . $p2['name'] . '" />';
         echo $p2['score'];
         echo '<br>';
+        echo '<img src="' . $p3['pic'] . '" alt="' . $p3['name'] . '" />';
         echo $p3['score'];
         echo '<br>';
+        echo '<img src="' . $p4['pic'] . '" alt="' . $p4['name'] . '" />';
         echo $p4['score'];
         echo '<br>';
         $winnerScore = getWeener($p1, $p2, $p3, $p4);
