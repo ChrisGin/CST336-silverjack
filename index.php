@@ -73,8 +73,8 @@
         echo $p4['score'];
         echo '<br>';
         $winnerScore = getWeener($p1, $p2, $p3, $p4);
-        $winnerPlayer = getWeenerName($p1, $p2, $p3, $p4, $winner);
-        echo '<h2> ' . $winnerPlayer['name'] . $winnerScore . $winnerPlayer['pot'] . ' </h2>';
+        $winnerPlayer = getWeenerName($p1, $p2, $p3, $p4, $winnerScore);
+        echo '<h2> ' . $winnerPlayer['name'] . ' ' . $winnerScore . ' '  . $winnerPlayer['pot'] . ' </h2>';
     }
 
 /*
