@@ -1,7 +1,44 @@
 <?php
+
+    $names=array('Jacqui' => 0, 'Kenshi' => 0, 'LiuKang' => 0, 'Raiden' => 0, 'Scorpion' => 0, 'SubZero' => 0,
+                 'Johnny' => 0, 'Kitana' => 0, 'Mileena' => 0, 'Reptile' => 0, 'Sonya' => 0, 'Tanya' => 0);
+
+    function getName()
+    {
+        global $names;
+        while(true)
+        {
+            $counter=0;
+            $random=rand(0, count($names));
+
+            foreach( $names as $key => $value )
+            {
+                if( $counter == $random )
+                {
+                    if( $value == 0 )
+                    {
+                        $value=1;
+                        return $key;
+                    }
+
+                    else
+                        break;
+                }
+
+                $counter++;
+            }
+        }
+    }
+
+    function createPlayer($name)
+    {
+        $player=array('name' => $name, 'hand' => array_fill(0, 52, 0), 'score' => 0, 'pic' => 'img/' . $name . '.png');
+        return $player;
+    }
         
-    //getHand($p4,$p4Score);
+    getHand($p4,$p4Score);
     
+<<<<<<< HEAD
     //$weener = getWeener($p1,$p2,$p3,$p4);
     include "player.php";
 
@@ -23,6 +60,10 @@
         getHand($p4);
 
     }
+=======
+    $weener = getWeener($p1,$p2,$p3,$p4);
+    
+>>>>>>> a4070927635eb8f23e0098a9fa1fa60252dfcf1b
     
     function getHand(&$player){
         while($player["score"] < 42)
@@ -102,11 +143,19 @@
             <h1 class = "title">
                 Silver Jack
             </h1>
+<<<<<<< HEAD
 
             <hr>
 
             <div class = "boxed">
                 <?php play();?>
+=======
+            <br />
+            <br />
+            <br />
+            <div class = "boxed">
+              
+>>>>>>> a4070927635eb8f23e0098a9fa1fa60252dfcf1b
             </div>
               
             
