@@ -140,10 +140,10 @@
         
         rsort($finalScores);
 
-        for($i = 0; $i < count($scores); $i++){
+        /*for($i = 0; $i < count($scores); $i++){
             echo 'Scores: ';
             echo $finalScores[$i] . '<br>';
-        } 
+        } */
         
         return $finalScores[0];
     }
