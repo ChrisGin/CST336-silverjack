@@ -160,21 +160,38 @@
     
     function getWeenerName(& $p1, & $p2, & $p3, & $p4, $winner){
         if($p1['score'] == $winner){
-            $p1['pot'] == ($p2['score'] + $p3['score'] + $p4['score']);
+            $p1['pot'] = getPoints($p1, $p2, $p3, $p4, $p1);
             return $p1;
         }
         if($p2['score'] == $winner){
-            $p2['pot'] == ($p1['score'] + $p3['score'] + $p4['score']);
+            $p2['pot'] = getPoints($p1, $p2, $p3, $p4, $p2);
             return $p2;
         }
         if($p3['score'] == $winner){
-            $p3['pot'] == ($p1['score'] + $p2['score'] + $p4['score']);
+            $p3['pot'] = getPoints($p1, $p2, $p3, $p4, $p3);
             return $p3;
         }
         if($p4['score'] == $winner){
-            $p4['pot'] == ($p1['score'] + $p2['score'] + $p3['score']);
+            $p4['pot'] = getPoints($p1, $p2, $p3, $p4, $p4);
             return $p4;
         }
+    }
+    
+    function getPoints($p1, $p2, $p3, $p4, $winner){
+        $players=array($p1, $p2, $p3, $p4);
+        $losers=array();
+        $points=0;
+
+        foreach( $players as $p ){
+            if( $p['name'] != $winner['name'] )
+                array_push($losers, $p);
+        }
+ 
+        foreach( $losers as $p ){
+            $points+=$p['score'];
+        }
+
+        return $points;
     }
 
 /*
