@@ -3,7 +3,26 @@
     //getHand($p4,$p4Score);
     
     //$weener = getWeener($p1,$p2,$p3,$p4);
-    
+    include "player.php";
+
+    function play(){
+        $name=getName();    
+        $p1=createPlayer($name);
+        getHand($p1);
+
+        $name=getName();
+        $p2=createPlayer($name);
+        getHand($p2);
+
+        $name=getName();
+        $p3=createPlayer($name);
+        getHand($p3);
+
+        $name=getName();
+        $p4=createPlayer($name);
+        getHand($p4);
+
+    }
     
     function getHand(&$player){
         while($player["score"] < 42)
@@ -11,37 +30,39 @@
             while($player["score"] < 35){
                 getCard($player);
                 setSum($player);
+                echo $player['score'] . " ";
             }
+
             if(rand(0,3) <= 1){
                 getCard($player);
                 setSum($player);
             }
+
             else{
                 break;
             }
         }
     }
     
-    
-    function setSum(& $player){
-        $handSum = 0;
-        for($i = 0 ; count($player["hand"]); $i++){
-            if($player["hand"][$i]== 1){
-                $handSum = $i % 13;
-            }
-            
-        }
-        $player["score"] = $handSum;
-    }
-    
     function getCard(& $player){
         while(true){
-            $draw = rand(0,52);
-            if($player["hand"]["draw"]== 0){
-                $player["hand"]["draw"] = 1;
+            $draw = rand(0,51);
+            if($player["hand"][$draw]== 0){
+                $player["hand"][$draw] = 1;
                 return;
             }
         }
+    }
+    
+    function setSum(& $player){
+        $handSum = 0;
+        for($i = 0 ; $i < count($player["hand"]); $i++){
+            if($player["hand"][$i]== 1){
+                $handSum = $handSum + $i % 13;
+            } 
+        }
+        $player["score"] = $handSum;
+        return;
     }
     
     function getWeener($p1,$p2,$p3,$p4){
@@ -51,14 +72,15 @@
                 unset($player["scores"][$i]);
             }
         }
-            rsort($scores);
-            return $scores[0];
+
+        rsort($scores);
+        return $scores[0];
     }
 
 ?>
 
 <!DOCTYPE>
-<hmtml>
+<html>
     <head>
         <meta charset="utf-8">
         
@@ -80,16 +102,11 @@
             <h1 class = "title">
                 Silver Jack
             </h1>
-            <br />
-            <br />
+
+            <hr>
+
             <div class = "boxed">
-               hand<br />
-                hand<br />
-                 hand<br />
-                  hand<br />
-               hand<br />
-                hand<br />
-                 hand<br />
+                <?php play();?>
             </div>
               
             
@@ -107,4 +124,4 @@
         <img src="img/csumb-logo.png" alt="CSUMB Logo" />
     </footer>
     
-</hmtml>
+</html>
